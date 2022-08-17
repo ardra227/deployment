@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infraproject
+spec:
+  selector:
+    matchLabels:
+      app: infraproject
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: infraproject
+
+    spec:
+      containers:
+        - name: infraproject
+
+          image: ardrathought/ams-kanban:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
